@@ -11,9 +11,16 @@
 |
 */
 
+use Dotenv\Dotenv;
+
 $app = new Illuminate\Foundation\Application(
-    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
+    realpath(__DIR__.'/../')
 );
+
+// Load environment variables from custom location
+$dotenv = Dotenv::createImmutable(__DIR__.'/../w3s-dynamic-storage');
+$dotenv->load();
+
 
 /*
 |--------------------------------------------------------------------------
